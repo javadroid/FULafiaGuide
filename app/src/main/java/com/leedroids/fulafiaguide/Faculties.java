@@ -1,23 +1,23 @@
 package com.leedroids.fulafiaguide;
 
-import Adaptors.SearchAdapter;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.SearchView;
+
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import model.SearchModel;
-
-import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import Adaptors.SearchAdapter;
+import model.SearchModel;
 
 public class Faculties extends AppCompatActivity{
 
@@ -32,7 +32,7 @@ public class Faculties extends AppCompatActivity{
             R.drawable.facultyofart,
             R.drawable.faculty_of_education,
             R.drawable.facultyofscience,
-            R.drawable.temp,
+            R.drawable.faculty_social_science,
             R.drawable.temp
     };
     private String[] facultyNames = {
@@ -51,6 +51,7 @@ public class Faculties extends AppCompatActivity{
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recyclerView = findViewById(R.id.faculties_recycler_view);
 

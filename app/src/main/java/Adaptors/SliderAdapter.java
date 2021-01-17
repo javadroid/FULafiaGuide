@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.leedroids.fulafiaguide.R;
-
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+
+import com.leedroids.fulafiaguide.R;
 
 /**
  * Created by HP-USER on 19-Jul-19.
@@ -21,26 +21,18 @@ public class SliderAdapter extends PagerAdapter {
     private Context context;
     int[] images;
 
-
-
-
     public SliderAdapter(Context context,int[] images){
         this.context = context;
-
-
         this.images = images;
 
     }
     @Override
     public int getCount(){
-        return
-                images.length;
-
+        return images.length;
     }
 
     @Override
     public  boolean isViewFromObject(View view, Object object){
-
         return view == object;
     }
 

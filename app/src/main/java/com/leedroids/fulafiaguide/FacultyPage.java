@@ -1,22 +1,23 @@
 package com.leedroids.fulafiaguide;
 
-import Adaptors.DepartmentAdapter;
+import android.os.Bundle;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import model.DepartmentModel;
 
-import android.os.Bundle;
-import android.widget.ImageView;
-
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import Adaptors.DepartmentAdapter;
+import model.DepartmentModel;
 
 public class FacultyPage extends AppCompatActivity {
 
@@ -28,6 +29,7 @@ public class FacultyPage extends AppCompatActivity {
     private int f_image;
     private Toolbar toolbar;
     private BottomNavigationView bottomNavigationView;
+    CollapsingToolbarLayout collapsingToolbarLayout;
 
     private String[] facultyOfArt = {"English","French","History","Visual and Creative Arts","Philosophy","Theater and Media Arts","Christian Religion Studies","Islamic Studies","Hausa Language","Arabic Studies"};
     private String[] facultyOfScience = {"Computer Science","Mathematics","Physics","Chemistry","Microbiology","Biochemistry","Statistics","Geography","Geology","Zoology","Science Laboratory Technology"};
@@ -52,7 +54,10 @@ public class FacultyPage extends AppCompatActivity {
         facultyPhoto.setImageResource(f_image);
 
         toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Departments In "+f_name);
+        setSupportActionBar(toolbar);
+        collapsingToolbarLayout = findViewById(R.id.ctb);
+        collapsingToolbarLayout.setTitle("Departments In "+f_name);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);

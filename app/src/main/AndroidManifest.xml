@@ -33,17 +33,23 @@
 
         <activity
             android:name=".FulafiaMapActivity"
-            android:label="@string/title_activity_fulafia_map" />
-        <activity android:name=".FacultyPage" />
+            android:label="@string/title_activity_fulafia_map"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".FacultyPage"
+            android:label="Department"
+            android:parentActivityName=".Faculties"/>
         <activity android:name=".OnlineChannelsActivity"
-            android:label="Official Online Channels"/>
+            android:label="Official Online Channels"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".Faculties"
-            android:label="Faculties" />
-        <activity android:name=".About" />
+            android:label="Faculties"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".PrincipalOfficers"
             android:label="Principal Officers"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".History" />
+        <activity android:name=".History"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".MainActivity" />
         <activity
             android:name="Splashscreen"

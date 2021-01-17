@@ -1,18 +1,19 @@
 package com.leedroids.fulafiaguide;
 
-import Adaptors.PrincipalOfficersAdapter;
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import model.PrincipalOfficersModel;
-
-import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
+
+import Adaptors.PrincipalOfficersAdapter;
+import model.PrincipalOfficersModel;
 
 public class PrincipalOfficers extends AppCompatActivity {
 
@@ -22,9 +23,9 @@ public class PrincipalOfficers extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private Toolbar toolbar;
 
-    private int[] IMAGE1 = {R.drawable.chancellor,R.drawable.liman,R.drawable.dvc,
+    private int[] IMAGE1 = {R.drawable.chancellor,R.drawable.vc,R.drawable.dvc,
 		R.drawable.registrar,R.drawable.librarian,R.drawable.bursar};
-    private String[] NAME = {"King W.S Joshua Igbugburu","Professor Muhammed Sanusi Liman","Professor Idris O.O Amali",
+    private String[] NAME = {"King W.S Joshua Igbugburu","Professor Shehu  Abdur-Rahman","Professor Idris O.O Amali",
 		"Dr Abubakar Mamuda","Dr Abiodun Iyaro","Mr Daniel Anjola Wilson"};
     private String[] POST = {"Chancellor","Vice Chancellor","Vice Chancellor",
 		"Registrar","Librarian","Bursar"};
@@ -36,6 +37,7 @@ public class PrincipalOfficers extends AppCompatActivity {
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);

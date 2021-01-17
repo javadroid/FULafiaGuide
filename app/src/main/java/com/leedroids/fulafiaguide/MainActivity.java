@@ -1,20 +1,18 @@
 package com.leedroids.fulafiaguide;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ScrollView;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -27,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private CardView history,faculties,principalofficers, onlineChannels,map,more;
     private ScrollView scrollView;
     private BottomNavigationView bottomNavigationView;
+    private boolean isFragShowing = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,11 +89,10 @@ public class MainActivity extends AppCompatActivity {
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction
                         .replace(R.id.mFragment, fragment, "More")
-                        .addToBackStack("more")
                         .commit();
+                isFragShowing = true;
             }
         });
-
 
         // reference to silder images, stored in an array
         images = new int[] {
@@ -110,24 +108,23 @@ public class MainActivity extends AppCompatActivity {
         };
 
         viewPager.setAdapter(new SliderAdapter(this, images));
+        TabLayout sliderDots = findViewById(R.id.slideDots);
+        sliderDots.setupWithViewPager(viewPager);
         Timer timer = new Timer();
-
         timer.scheduleAtFixedRate(new SliderTimer(),1000,10000);
     }
 
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder exitAlert = new AlertDialog.Builder(this);
-        exitAlert.setMessage("Are you sure you want to exit?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        MainActivity.this.finishAffinity();
-                    }
-                })
-                .setNegativeButton("No", null)
-                .show();
+        if(isFragShowing){
+            getSupportFragmentManager().beginTransaction().remove(getSupportFragmentManager().findFragmentById(R.id.mFragment)).commit();
+        }else{
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                this.finishAffinity();
+            }else{
+                this.finish();
+            }
+        }
     }
 
     private class  SliderTimer extends TimerTask {

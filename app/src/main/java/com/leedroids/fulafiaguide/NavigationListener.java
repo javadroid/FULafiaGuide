@@ -29,7 +29,6 @@ public class NavigationListener implements BottomNavigationView.OnNavigationItem
                 dialog.show(activity.getFragmentManager(), "123");
                 break;
             case R.id.share:
-
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
                 sendIntent.putExtra(Intent.EXTRA_TEXT,
