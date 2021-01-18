@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Blog</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style type="text/css">
+        .border-left {
+            border: 0 0 13px 0 #000000;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 250px;
+        }
+        .bottom {
+            position: fixed;
+            bottom: 0;
+        }
+        .bg-fulafia {
+          background-color: #827717;
+          border-radius: 12px 12px;
+          cursor: pointer;
+        }
+    </style>
+    <!-- <script type="text/javascript" src="js/vue.min.js"></script>-->
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript" src="js/axios.js"></script>
+    <script type="text/javascript" src="js/vue-lazyload.js"></script>
+</head>
+
+<body>
+    <div class="container" id="app">
+        <!-- carousel stops here -->
+        <div class="row" v-if="errored">
+            <div class="col-sm-12 col-xl-12 col-md-12 mb-12">
+                <div class="card border-left shadow h-100 py-2">
+                    <!-- <div class="card border-left shadow h-100 py-2"> -->
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    ERROR: {{msg}}
+                                    <hr>
+                                    <small>Make sure you are connected to the internet</small>
+                                    <button class="btn btn-dark">Try again</button>
+                                    <a href="cached.html" class="btn btn-warning">Cached questions</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="row" v-else>
+                <div v-if="loading" class="col-sm-12 col-xl-12 col-md-12 mb-12">
+                    <div class="card border-left shadow h-100 py-2">
+                        <div class="card border-left shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <img src="images/loading.gif" style="width: 100px; height: auto;"> Loading questions....
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Earnings (Monthly) Card Example -->
+                <div v-else-if="!departmentExist" class="text-light col-sm-12 col-xl-12 col-md-12 mb-12 shadow-lg mt-3 mb-3">
+                    <!-- IF NO SUBJECT IS SELECTED -->
+                    <div class="alert bg-dark mt-2 text-center">
+                        Select a department to view past questions
+                    </div>
+                    <p v-if="msg" class="bg-danger text-center text-light">
+                        {{msg}}
+                    </p>
+                    
+                    <div class="row">
+                            <div
+                              v-for="dept in departments"
+                              @click="setDepartment"
+                              class="col-sm-6 col-xl-6 col-md-6 mb-3 bg-fulafia p-5 text-center text-uppercase pr-1 border">
+                                {{dept}}
+                            </div>
+                    </div>
+                    <a
+                    class="bg-dark p-2 mb-2 badge badge-lg display-2"
+                    href="index.html"
+                    style="position: sticky; bottom: 0;text-decoration: none;color: #fff;">
+                    Reload
+                </a>
+                <a
+                    class="bg-info p-2 mb-2 badge badge-lg display-2"
+                    href="https://bit.ly/fulafiaguide-feedback"
+                    style="position: sticky; bottom: 0;text-decoration: none;color: #fff;">
+                    Contact us (Request access, feedback, etc...)
+                </a>
+            </div>
+            <div v-else class="col-sm-12 col-xl-12 col-md-12 mb-12">
+                <div v-for="question in questions" :key="question.id">
+                    <div class="card border-left shadow h-100 py-2">
+                        <a :href="'post.html?p='+question.id" style="text-decoration-line: none;color: #000000;">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                            {{question.department}}
+                                        </div>
+                                        <p>{{question.question.slice(0, 100)}}...</p>
+                                    </div>
+                                    <div class="col-auto"><img v-lazy="question.thumbnail"></div>
+                                </div>
+                            </div>
+                        </a>
+                        <a :href="'post.html?p='+question.id" style="background-color: #827717;color:#ffffff" class="btn">
+                            <div class="card-footer text-center text-uppercase">Read more</div>
+                        </a>
+                    </div>
+                </div>
+                <!-- <div class="col-sm-12 col-xl-12 col-md-12 mb-12"> -->
+                    <button v-if="!errored && !loading && showButton" style="width: inherit;" class="btn btn-dark shadow-lg btn-sm text-center btn-lg" @click="goToNextPage()">Load More &nbsp;&gt;&gt;&nbsp;</button>
+                    <br><br>
+
+                    <a
+                    class="bg-dark p-2 mb-2 badge badge-lg display-2"
+                    href="index.html"
+                    style="position: sticky; bottom: 0;left:0;text-decoration: none;color: #fff;">
+                     &lt; &lt; HOME
+                </a>
+                    <hr>
+
+                    <!-- </div> -->
+                </div>
+            </div>
+            <small>
+                <sup>Created by <a href="https://twitter.com/tasiukwaplong">tasiukwaplong</a> &copy; 2020</sup>
+            </small>
+        </div>
+        <script type="text/javascript" src="js/app.js"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> -->
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> -->
+    </body>
+
+    </html>

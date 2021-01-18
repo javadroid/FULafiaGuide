@@ -32,7 +32,7 @@ public class NavigationListener implements BottomNavigationView.OnNavigationItem
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
                 sendIntent.putExtra(Intent.EXTRA_TEXT,
-                        "Hey check out the FULafia Guide App at: https://www.playstore.com");
+                        "Hey check out the FULafia Guide App on play store");
                 sendIntent.setType("text/plain");
                 context.startActivity(sendIntent);
                 break;

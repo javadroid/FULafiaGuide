@@ -22,7 +22,7 @@ import Adaptors.SliderAdapter;
 public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager ;
     int[] images;
-    private CardView history,faculties,principalofficers, onlineChannels,map,more;
+    private CardView history,faculties,principalofficers, onlineChannels,map,more,pastQuestion;
     private ScrollView scrollView;
     private BottomNavigationView bottomNavigationView;
     private boolean isFragShowing = false;
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         onlineChannels = findViewById(R.id.onlineChannels);
         map = findViewById(R.id.Map);
         more = findViewById(R.id.More);
+        pastQuestion = findViewById(R.id.past_question);
         scrollView = findViewById(R.id.scrollView);
 
         bottomNavigationView = findViewById(R.id.bottomBar);
@@ -80,6 +81,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent mapIntent= new Intent(getApplicationContext(),FulafiaMapActivity.class);
                 startActivity(mapIntent);
+            }
+        });
+        pastQuestion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent pqIntent = new Intent(getApplicationContext(),PastQuestionActivity.class);
+                startActivity(pqIntent);
             }
         });
         more.setOnClickListener(new View.OnClickListener() {

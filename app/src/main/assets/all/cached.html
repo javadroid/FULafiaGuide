@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Blog</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <style type="text/css">
+        .border-left {
+            border: 0 0 13px 0 #000000;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+        .error{
+            position: sticky;
+            top: 0;
+            /*bottom: 0;*/
+        }
+        .stick-bottom{
+            position: fixed;
+            bottom: 0;
+        }
+
+        .fulafia {
+          background-color: #827717;
+        }
+    </style>
+    <!-- <script type="text/javascript" src="js/vue.min.js"></script>-->
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript" src="js/axios.js"></script>
+    <script type="text/javascript" src="js/vue-lazyload.js"></script>
+</head>
+
+<body>
+    <div class="container" id="app">
+        <div class="row" v-if="errored" >
+           <div class="col-sm-12 col-xl-12 col-md-12 mb-12">
+            <!-- <div class="card border-left shadow h-100 py-2"> -->
+                <div class="card border-left shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                ERROR: {{msg}}
+                                <hr>
+                                <small>Try checking your internet connection</small>
+                                <a href="index.html" class="btn btn-dark">Try again</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- </div> -->
+        </div>
+    </div>
+    <div class="row" v-else>
+        <div class="col-md-12 col-sm-12 col-xl-12">
+        <div class="card bg-warning text-light shadow h-100 error">
+            <div class="card-body">
+                These questions were saved when you last had internet.
+                <small>Kindly <a href="index.html" class="btn btn-sm btn-light">reload</a> when you have internet </small>
+            </div>
+        </div>
+    </div>
+        <div v-if="loading" class="col-sm-12 col-xl-12 col-md-12 mb-12">
+            <div class="card border-left shadow h-100 py-2">
+                <div class="card border-left shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <img src="images/loading.gif" style="width: 100px; height: auto;">
+                                Loading questions....
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Earnings (Monthly) Card Example -->
+        <div v-else>
+          <div v-for="post in posts" :key="post.post_id" class="col-sm-12 col-xl-12 col-md-12 mb-12">
+            <div class="card border-left shadow h-100 py-2">
+               <a :href="'post.html?p='+post.post_id" style="text-decoration-line: none;color: #000000;">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                              {{post.department}}
+                          </div>
+                          <p>{{post.question.slice(0, 100)}}...</p>
+                      </div>
+                      <div class="col-auto"><img v-lazy="post.thumbnail"></div>
+                  </div>
+              </div>
+          </a>
+          <a :href="'post.html?p='+post.id" class="btn fulafia text-light">
+                        <div class="card-footer text-center text-uppercase">Read more</div>
+                    </a>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="js/cached.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -3,7 +3,6 @@ package com.leedroids.fulafiaguide;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.SearchView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -24,11 +23,10 @@ public class Faculties extends AppCompatActivity{
     private RecyclerView recyclerView;
     private List<SearchModel> searchModelList;
     private SearchAdapter sAdapter;
-    private SearchView searchView;
     private BottomNavigationView bottomNavigationView;
 
     private int[] facultyImages = {
-            R.drawable.temp,
+            R.drawable.faculty_of_agric,
             R.drawable.facultyofart,
             R.drawable.faculty_of_education,
             R.drawable.facultyofscience,

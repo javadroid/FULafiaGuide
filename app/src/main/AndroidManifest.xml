@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.leedroids.fulafiaguide">
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -18,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".PastQuestionActivity"
+            android:label="Past Questions"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -34,25 +34,30 @@
         <activity
             android:name=".FulafiaMapActivity"
             android:label="@string/title_activity_fulafia_map"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".FacultyPage"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".FacultyPage"
             android:label="Department"
-            android:parentActivityName=".Faculties"/>
-        <activity android:name=".OnlineChannelsActivity"
+            android:parentActivityName=".Faculties" />
+        <activity
+            android:name=".OnlineChannelsActivity"
             android:label="Official Online Channels"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".Faculties"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Faculties"
             android:label="Faculties"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".PrincipalOfficers"
+        <activity
+            android:name=".PrincipalOfficers"
             android:label="Principal Officers"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".History"
-            android:parentActivityName=".MainActivity"/>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".History"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity" />
         <activity
-            android:name="Splashscreen"
+            android:name=".Splashscreen"
             android:theme="@style/myTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
