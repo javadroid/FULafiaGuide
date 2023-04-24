@@ -104,15 +104,15 @@ public class MainActivity extends AppCompatActivity {
 
         // reference to silder images, stored in an array
         images = new int[] {
-                R.drawable.image1,
-                R.drawable.permlight,
-                R.drawable.permdark,
-                R.drawable.central_admin,
-                R.drawable.female_hostel,
-                R.drawable.male_hostel,
-                R.drawable.mallamadamulectureandofficecomplex,
-                R.drawable.temp,
-                R.drawable.images3
+                R.drawable.schgate,
+                R.drawable.library,
+                R.drawable.central,
+                R.drawable.health,
+                R.drawable.hostel,
+                R.drawable.senate,
+                R.drawable.mbrs,
+                R.drawable.adamu,
+                R.drawable.gatenight
         };
 
         viewPager.setAdapter(new SliderAdapter(this, images));
