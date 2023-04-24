@@ -32,10 +32,12 @@ public class FacultyPage extends AppCompatActivity {
     CollapsingToolbarLayout collapsingToolbarLayout;
 
     private String[] facultyOfArt = {"English","French","History","Visual and Creative Arts","Philosophy","Theater and Media Arts","Christian Religion Studies","Islamic Studies","Hausa Language","Arabic Studies"};
-    private String[] facultyOfScience = {"Computer Science","Mathematics","Physics","Chemistry","Microbiology","Biochemistry","Statistics","Geography","Geology","Zoology","Science Laboratory Technology"};
+    private String[] facultyOofComputing = {"Computer Science","Software Engineering","Information Technology","Information Systems","Cyber Security"};
+    private String[] facultyOfScience = {"Mathematics","Physics","Chemistry","Microbiology","Biochemistry","Statistics","Geography","Geology","Zoology","Science Laboratory Technology"};
     private String[] facultyOfSocialScience = {"Economics","Political Science","Sociology","Social Work","Mass Communications","Psychology","Business Administration","Accounting"};
-    private String[] facultyOfAgriculture = {"Agricultural Economics and Extension Services","Agriculture and Fisheries","Forestry and Wildlife Management"};
+    private String[] facultyOfAgriculture = {"Agronomy","Agricultural Economics and Extension Services","Agriculture and Fisheries","Forestry and Wildlife Management"};
     private String[] facultyOfEducation = {"Computer Science Education","Mathematics Education","Physics Education","Biology Education","Chemistry Education","Library and Information Science","Special Needs and Rehabilitation Education","Business Education","Integrated Science Education"};
+    private String[] facultyOfManagementScience = {"Accounting","Business Administration"};
     private String[] collegeOfMedicine = {"Medical Laboratory Science","Anatomy","Physiology","Medicine","Nursing","Radiography"};
 
     @Override
@@ -69,6 +71,9 @@ public class FacultyPage extends AppCompatActivity {
             case "Faculty of Arts":
                 showDepartments(facultyOfArt);
                 break;
+            case "Faculty of Computing":
+                showDepartments(facultyOofComputing);
+                break;
             case "Faculty of Science":
                 showDepartments(facultyOfScience);
                 break;
@@ -77,6 +82,9 @@ public class FacultyPage extends AppCompatActivity {
                 break;
             case "Faculty of Education":
                 showDepartments(facultyOfEducation);
+                break;
+            case "Faculty of Management Science":
+                showDepartments(facultyOfManagementScience);
                 break;
             case "Faculty of Agriculture":
                 showDepartments(facultyOfAgriculture);

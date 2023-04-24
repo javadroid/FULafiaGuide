@@ -44,7 +44,7 @@
                     android:fontFamily="sans-serif-medium"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Federal University Lafia"
+                    android:text="Federal University of Lafia"
                     android:textColor="@color/colorAccent"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -125,7 +125,7 @@
                     android:fontFamily="sans-serif-condensed-light"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Chancellor: King W.S Joshua Igbugburu"
+                    android:text="Chancellor: Dr. Shekarau Angyu Masa Ibi"
                     android:textColor="#000"
                     android:textSize="12sp"
                     app:fontFamily="sans-serif-condensed-light" />
@@ -136,7 +136,7 @@
                     android:fontFamily="sans-serif-condensed-light"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Vice-Chancellor: Prof. Muhammed Sanusi Liman"
+                    android:text="Vice-Chancellor: Prof. Shehu Abdur-Rahman"
                     android:textColor="#000"
                     android:textSize="12sp"
                     app:fontFamily="sans-serif-condensed-light" />

@@ -24,10 +24,10 @@ public class PrincipalOfficers extends AppCompatActivity {
     private Toolbar toolbar;
 
     private int[] IMAGE1 = {R.drawable.chancellor,R.drawable.vc,R.drawable.dvc,
-		R.drawable.registrar,R.drawable.librarian,R.drawable.bursar};
-    private String[] NAME = {"King W.S Joshua Igbugburu","Professor Shehu  Abdur-Rahman","Professor Idris O.O Amali",
-		"Dr Abubakar Mamuda","Dr Abiodun Iyaro","Mr Daniel Anjola Wilson"};
-    private String[] POST = {"Chancellor","Vice Chancellor","Vice Chancellor",
+		R.drawable.registra,R.drawable.librarian,R.drawable.bursar};
+    private String[] NAME = {"Dr. Shekarau Angyu Masa Ibi ","Prof. Shehu Abdur-Rahman","Professor Idris O.O Amali",
+		"Mallam Nuruddeen Abdu","Dr Abiodun Iyaro","Mr Daniel Anjola Wilson"};
+    private String[] POST = {"Chancellor","Vice Chancellor","Deputy Vice Chancello",
 		"Registrar","Librarian","Bursar"};
 
     @Override

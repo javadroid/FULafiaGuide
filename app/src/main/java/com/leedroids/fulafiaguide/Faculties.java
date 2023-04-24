@@ -28,7 +28,9 @@ public class Faculties extends AppCompatActivity{
     private int[] facultyImages = {
             R.drawable.faculty_of_agric,
             R.drawable.facultyofart,
+            R.drawable.cpdept,
             R.drawable.faculty_of_education,
+            R.drawable.takeoff,
             R.drawable.facultyofscience,
             R.drawable.faculty_social_science,
             R.drawable.temp
@@ -36,7 +38,9 @@ public class Faculties extends AppCompatActivity{
     private String[] facultyNames = {
             "Faculty of Agriculture",
             "Faculty of Arts",
+            "Faculty of Computing",
             "Faculty of Education",
+            "Faculty of Management Science",
             "Faculty of Science",
             "Faculty of Social Sciences",
             "College of Medicine"

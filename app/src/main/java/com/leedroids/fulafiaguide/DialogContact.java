@@ -27,6 +27,7 @@ public class DialogContact extends DialogFragment {
        Button btnCallSecurity =  dialogView.findViewById(R.id.call_security);
        Button btnCallClinic =  dialogView.findViewById(R.id.call_clinic);
        Button btnCallSA = dialogView.findViewById(R.id.call_student_affair);
+        Button btnEnvironmental = dialogView.findViewById(R.id.call_Environmental);
 
         btnCallSecurity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +37,21 @@ public class DialogContact extends DialogFragment {
 
                 try {
                     startActivity(callIntentpolice);
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Log.i("Failed,Try Again...", "");
+                    Toast.makeText(getActivity(),"Failed, Try Again",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        btnEnvironmental.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent callSA = new Intent(Intent.ACTION_DIAL);
+                callSA.setData(Uri.parse("tel:08033351864"));
+
+                try {
+                    startActivity(callSA);
                 } catch (android.content.ActivityNotFoundException ex) {
                     Log.i("Failed,Try Again...", "");
                     Toast.makeText(getActivity(),"Failed, Try Again",Toast.LENGTH_SHORT).show();

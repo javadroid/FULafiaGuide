@@ -39,7 +39,7 @@ public class More extends Fragment {
         tabLayout = view.findViewById(R.id.tabLayoutMore);
         adapter = new TabAdapter(getFragmentManager());
         adapter.addFragment(new AboutApp(),"About FULafia Guide");
-        adapter.addFragment(new DscFulafia(),"DSC FULafia");
+        adapter.addFragment(new DscFulafia(),"GDSC FULafia");
 
 
         viewPager.setAdapter(adapter);

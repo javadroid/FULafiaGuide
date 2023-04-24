@@ -22,20 +22,20 @@ public class PastQuestionActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        WebView webView = (WebView) findViewById(R.id.webV);
-        webView.loadUrl("file:///android_asset/all/index.html");
-        webView.setWebViewClient(new WebViewClient());
-        WebSettings webSettings = webView.getSettings();
-        webView.getSettings().setDomStorageEnabled(true);
-        webView.getSettings().setLoadsImagesAutomatically(true);
-        webView.getSettings().setAppCacheEnabled(true);
-        webSettings.setJavaScriptEnabled(true);
-        webView.setWebViewClient(new WebViewClient(){
-
-            public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
-                sslErrorHandler.proceed();
-            }
-        });
+//
+//        WebView webView = (WebView) findViewById(R.id.webV);
+//        webView.loadUrl("file:///android_asset/all/index.html");
+//        webView.setWebViewClient(new WebViewClient());
+//        WebSettings webSettings = webView.getSettings();
+//        webView.getSettings().setDomStorageEnabled(true);
+//        webView.getSettings().setLoadsImagesAutomatically(true);
+//        webView.getSettings().setAppCacheEnabled(true);
+//        webSettings.setJavaScriptEnabled(true);
+//        webView.setWebViewClient(new WebViewClient(){
+//
+//            public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
+//                sslErrorHandler.proceed();
+//            }
+//        });
     }
 }
